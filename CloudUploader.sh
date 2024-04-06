@@ -6,7 +6,7 @@
 # - Completed: March 30, 2024
 
 #authenticate into azure
-authentication{
+authentication(){
     echo "going to login"
     az login --use-device-code
     echo "You're logged in."
@@ -139,10 +139,10 @@ uploadFile() {
 
     file_name=$1  # store the file/path in file_name variable
 
+    authentication
+
     echo "Would you like to create new resource group? (Y/N)"
     read answer
-
-    authentication
 
 # check if user provided resource group available, if not prompt user again to type correct resource group
 while true; do
